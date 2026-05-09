@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-service  # <--- MUST match the host in your Python URI
+spec:
+  ports:
+    - port: 27017
+      targetPort: 27017
+  clusterIP: None  # This is standard for StatefulSets (Headless Service)
+  selector:
+    app: mongodb
